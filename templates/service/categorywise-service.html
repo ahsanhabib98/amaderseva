@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+        {% if mobile %}
+          {% for mobile in mobile %}
+            <li class="item color-hoverlay default">
+              <h2 class="strong upper"><a href="{% url 'detail_mobilephone_service' mobile.id %}">{{mobile.title}}</a></h2>
+                <img src="{{mobile.photo.url}}" height="200px" width="200px"/>
+                <div class="contents-container">
+                    <div class="contents">
+                        <div class="controls">
+                            <a href="#" class="btn btn-dark"><i class="fa fa-search-plus"></i></a>
+                            <a href="#" class="btn btn-dark"><i class="fa fa-link"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+           {% endfor %}
+        {% elif compute %}
+           {% for compute in compute %}
+             <li class="item color-hoverlay default">
+              <h2 class="strong upper"><a href="{% url 'detail_computing_service' compute.id %}">{{compute.title}}</a></h2>
+                <img src="{{compute.photo.url}}" height="200px" width="200px"/>
+                <div class="contents-container">
+                  <div class="contents">
+                    <div class="controls">
+                      <a href="#" class="btn btn-dark"><i class="fa fa-search-plus"></i></a>
+                      <a href="#" class="btn btn-dark"><i class="fa fa-link"></i></a>
+                    </div>
+                 </div>
+                </div>
+              </li>
+            {% endfor %}
+         {% elif tv %}
+            {% for tv in tv %}
+              <li class="item color-hoverlay default">
+                <h2 class="strong upper"><a href="{% url 'detail_television_service' tv.id %}">{{tv.title}}</a></h2>
+                <img src="{{tv.photo.url}}" height="200px" width="200px"/>
+                <div class="contents-container">
+                  <div class="contents">
+                    <div class="controls">
+                      <a href="#" class="btn btn-dark"><i class="fa fa-search-plus"></i></a>
+                      <a href="#" class="btn btn-dark"><i class="fa fa-link"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            {% endfor %}
+          {% elif other %}
+            {% for other in other %}
+              <li class="item color-hoverlay default">
+              <h2 class="strong upper"><a href="{% url 'detail_others_service' other.id %}">{{other.title}}</a></h2>
+              <img src="{{other.photo.url}}" height="200px" width="200px"/>
+              <div class="contents-container">
+                <div class="contents">
+                  <div class="controls">
+                    <a href="#" class="btn btn-dark"><i class="fa fa-search-plus"></i></a>
+                    <a href="#" class="btn btn-dark"><i class="fa fa-link"></i></a>
+                  </div>
+                </div>
+              </div>
+            </li>
+          {% endfor %}
+        {% elif apartment %}
+          {% for apartment in apartment %}
+            <li class="item color-hoverlay default">
+              <h2 class="strong upper"><a href="{% url 'detail_apartment_service' apartment.id %}">{{apartment.title}}</a></h2>
+              <img src="{{apartment.photo.url}}" height="200px" width="200px"/>
+              <div class="contents-container">
+                <div class="contents">
+                  <div class="controls">
+                   <a href="#" class="btn btn-dark"><i class="fa fa-search-plus"></i></a>
+                   <a href="#" class="btn btn-dark"><i class="fa fa-link"></i></a>
+                  </div>
+                </div>
+              </div>
+            </li>
+          {% endfor %}
+        {% elif ecommerce %}
+          {% for ecommerce in ecommerce %}
+            <li class="item color-hoverlay default">
+              <h2 class="strong upper"><a href="{% url 'detail_ecommerce_service' ecommerce.id %}">{{ecommerce.title}}</a></h2>
+              <img src="{{ecommerce.photo.url}}" height="200px" width="200px"/>
+              <div class="contents-container">
+                <div class="contents">
+                  <div class="controls">
+                    <a href="#" class="btn btn-dark"><i class="fa fa-search-plus"></i></a>
+                    <a href="#" class="btn btn-dark"><i class="fa fa-link"></i></a>
+                  </div>
+                </div>
+              </div>
+            </li>
+          {% endfor %}
+        {% elif education %}
+          {% for education in education %}
+            <li class="item color-hoverlay default">
+              <h2 class="strong upper"><a href="{% url 'detail_education_service' education.id %}">{{education.title}}</a></h2>
+              <img src="{{education.photo.url}}" height="200px" width="200px"/>
+              <div class="contents-container">
+                <div class="contents">
+                  <div class="controls">
+                    <a href="#" class="btn btn-dark"><i class="fa fa-search-plus"></i></a>
+                    <a href="#" class="btn btn-dark"><i class="fa fa-link"></i></a>
+                  </div>
+                </div>
+              </div>
+            </li>
+          {% endfor %}
+        {% endif  %}
+  </body>
+</html>

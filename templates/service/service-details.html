@@ -1,0 +1,348 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Profile - Amader Sheba< {% endblock %}
+
+{% block contents %}
+    <!-- Sidebar menu-->
+    <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+    <aside class="app-sidebar">
+      <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg" alt="User Image">
+        <div>
+          <p class="app-sidebar__user-name">John Doe</p>
+          <p class="app-sidebar__user-designation">Frontend Developer</p>
+        </div>
+      </div>
+      <ul class="app-menu">
+        <li><a class="app-menu__item" href="index.html"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">UI Elements</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+          <ul class="treeview-menu">
+            <li><a class="treeview-item" href="bootstrap-components.html"><i class="icon fa fa-circle-o"></i> Bootstrap Elements</a></li>
+            <li><a class="treeview-item" href="https://fontawesome.com/v4.7.0/icons/" target="_blank" rel="noopener"><i class="icon fa fa-circle-o"></i> Font Icons</a></li>
+            <li><a class="treeview-item" href="ui-cards.html"><i class="icon fa fa-circle-o"></i> Cards</a></li>
+            <li><a class="treeview-item" href="widgets.html"><i class="icon fa fa-circle-o"></i> Widgets</a></li>
+          </ul>
+        </li>
+        <li><a class="app-menu__item" href="charts.html"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Charts</span></a></li>
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-edit"></i><span class="app-menu__label">Forms</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+          <ul class="treeview-menu">
+            <li><a class="treeview-item" href="form-components.html"><i class="icon fa fa-circle-o"></i> Form Components</a></li>
+            <li><a class="treeview-item" href="form-custom.html"><i class="icon fa fa-circle-o"></i> Custom Components</a></li>
+            <li><a class="treeview-item" href="form-samples.html"><i class="icon fa fa-circle-o"></i> Form Samples</a></li>
+            <li><a class="treeview-item" href="form-notifications.html"><i class="icon fa fa-circle-o"></i> Form Notifications</a></li>
+          </ul>
+        </li>
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Tables</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+          <ul class="treeview-menu">
+            <li><a class="treeview-item" href="table-basic.html"><i class="icon fa fa-circle-o"></i> Basic Tables</a></li>
+            <li><a class="treeview-item" href="table-data-table.html"><i class="icon fa fa-circle-o"></i> Data Tables</a></li>
+          </ul>
+        </li>
+        <li class="treeview is-expanded"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Add service</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+          <ul class="treeview-menu">
+            <li><a class="treeview-item" href="{% url 'create_mobilephone_service' %}"><i class="icon fa fa-circle-o"></i> Mobile Phone</a></li>
+            <li><a class="treeview-item" href="{% url 'create_computing_service' %}"><i class="icon fa fa-circle-o"></i> Computer</a></li>
+            <li><a class="treeview-item" href="{% url 'create_television_service' %}"><i class="icon fa fa-circle-o"></i> Television</a></li>
+            <li><a class="treeview-item active" href="{% url 'create_apartment_service' %}"><i class="icon fa fa-circle-o"></i> Apartment</a></li>
+            <li><a class="treeview-item" href="{% url 'create_education_service' %}"><i class="icon fa fa-circle-o"></i> Education</a></li>
+            <li><a class="treeview-item" href="{% url 'create_ecommerce_service' %}"><i class="icon fa fa-circle-o"></i> Ecommerce </a></li>
+            <li><a class="treeview-item" href="{% url 'create_others_service' %}"><i class="icon fa fa-circle-o"></i>Others</a></li>
+          </ul>
+        </li>
+      </ul>
+    </aside>
+    <main class="app-content">
+      <div class="row user">
+        <div class="col-md-12">
+          <div class="profile">
+            <div class="info"><img class="user-img" src="https://scontent-sit4-1.xx.fbcdn.net/v/t31.0-8/22552989_1104967996303684_8488203262383218336_o.jpg?_nc_cat=0&_nc_eui2=v1%3AAeFoALLg69bgHInWZxFYh2ccGMreC2DgEjqdoeY0dC6bLZVJYDIzYR9ony-H5E29mxtzyxjkTP2AVhy2bg0niZliv_9HZFlrDVwTk1nOeUYDCQ&oh=c7166165d16b635fb16564fa55aa0197&oe=5B9C7946">
+              <!-- <h4>{{user.username}}</h4>
+              <p>{{user.email}}</p> -->
+            </div>
+            <div class="cover-image"></div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="tile p-0">
+            <ul class="nav flex-column nav-tabs user-tabs">
+              <li class="nav-item"><a class="nav-link active" href="#user-service" data-toggle="tab">Service  Field</a></li>
+              <li class="nav-item"><a class="nav-link" href="#user-timeline" data-toggle="tab">Timeline</a></li>
+              <li class="nav-item"><a class="nav-link" href="#user-settings" data-toggle="tab">Settings</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <div class="tab-content">
+            <div class="tab-pane active" id="user-service">
+              <div class="timeline-post">
+
+          <div class="tile">
+            <h3 class="tile-title">Vertical Form</h3>
+            <div class="tile-body">
+              {% if mobilephone %}
+                {% if mobilephone.photo %}
+                  <img src="{{ mobilephone.photo.url }}" width="240" alt="service_pic">
+                {% endif %}
+                <p>Title: {{mobilephone.title}}</p>
+                <p>Condition: {{mobilephone.condition}}</p>
+                <p>Brand: {{mobilephone.brand}}</p>
+                <p>Thtree G: {{mobilephone.thtree_g}}</p>
+                <p>Four G: {{mobilephone.four_g}}</p>
+                <p>Touch screen: {{mobilephone.touch_screen}}</p>
+                <p>Model: {{mobilephone.model}}</p>
+                <p>Description: {{mobilephone.description}}</p>
+                <p>Price: {{mobilephone.price}}</p>
+                <p>Negotiable: {{mobilephone.negotiable}}</p>
+                <p>District: {{mobilephone.district}}</p>
+                <div class="tile-footer">
+                  <a class="btn btn-primary" href="{% url 'edit_mobilephone_service' mobilephone.id  %}">Edit</a>
+                </div>
+                <form class="" action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                      <p>Comment: {{ form1.comment}}</p>
+                      <p>Rating: {{ form1.rate}}</p>
+                    <button type="submit" name="">Submit</button>
+                </form>
+                {% for comment in comment %}
+                  <p>comment: {{comment.comment}}</p>
+                  <p>rating: {{comment.rate}}</p>
+                {% endfor %}
+              {% elif computing %}
+                {% if computing.photo %}
+                  <img src="{{ computing.photo.url }}" width="240" alt="service_pic">
+                {% endif %}
+                <p>Title: {{computing.title}}</p>
+                <p>Condition: {{computing.condition}}</p>
+                <p>Brand: {{computing.brand}}</p>
+                <p>Desktop: {{computing.desktop}}</p>
+                <p>Laptop: {{computing.laptop}}</p>
+                <p>Tablet: {{computing.tablet}}</p>
+                <p>Monitor: {{computing.tablet}}</p>
+                <p>Model: {{computing.model}}</p>
+                <p>Configuration: {{computing.configuration}}</p>
+                <p>Description: {{computing.description}}</p>
+                <p>Price: {{computing.price}}</p>
+                <p>Negotiable: {{computing.negotiable}}</p>
+                <p>District: {{computing.district}}</p>
+                <div class="tile-footer">
+                  <a class="btn btn-primary" href="{% url 'edit_computing_service' computing.id %}">Edit</a>
+                </div>
+                <form class="" action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <p>Comment: {{ form2.comment}}</p>
+                    <p>Rating: {{ form2.rate}}</p>
+                    <button type="submit" name="">Submit</button>
+                </form>
+                {% for comment in comment %}
+                  <p>comment: {{comment.comment}}</p>
+                  <p>rating: {{comment.rate}}</p>
+                {% endfor %}
+              {% elif television %}
+                {% if television.photo %}
+                  <img src="{{ television.photo.url }}" width="240" alt="service_pic">
+                {% endif %}
+                <p>Title: {{television.title}}</p>
+                <p>Condition: {{television.condition}}</p>
+                <p>Brand: {{television.brand}}</p>
+                <p>Model: {{television.model}}</p>
+                <p>Description: {{television.description}}</p>
+                <p>Price: {{television.price}}</p>
+                <p>Negotiable: {{television.negotiable}}</p>
+                <p>District: {{television.district}}</p>
+                <div class="tile-footer">
+                  <a class="btn btn-primary" href="{% url 'edit_television_service' television.id %}">Edit</a>
+                </div>
+                <form class="" action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <p>Comment: {{ form3.comment}}</p>
+                    <p>Rating: {{ form3.rate}}</p>
+                    <button type="submit" name="">Submit</button>
+                </form>
+                {% for comment in comment %}
+                  <p>comment: {{comment.comment}}</p>
+                  <p>rating: {{comment.rate}}</p>
+                {% endfor %}
+              {% elif others %}
+                {% if others.photo %}
+                  <img src="{{ others.photo.url }}" width="240" alt="service_pic">
+                {% endif %}
+                <p>Title: {{others.title}}</p>
+                <p>Condition: {{others.condition}}</p>
+                <p>Description: {{others.description}}</p>
+                <p>Price: {{others.price}}</p>
+                <p>Negotiable: {{others.negotiable}}</p>
+                <p>District: {{others.district}}</p>
+                <div class="tile-footer">
+                  <a class="btn btn-primary" href="{% url 'edit_others_service' others.id %}">Edit</a>
+                </div>
+                <form class="" action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <p>Comment: {{ form4.comment}}</p>
+                    <p>Rating: {{ form4.rate}}</p>
+                    <button type="submit" name="">Submit</button>
+                </form>
+                {% for comment in comment %}
+                  <p>comment: {{comment.comment}}</p>
+                  <p>rating: {{comment.rate}}</p>
+                {% endfor %}
+              {% elif apartment %}
+                {% if apartment.photo %}
+                    <img src="{{ apartment.photo.url }}" width="240" alt="service_pic">
+                {% endif %}
+                <p>Title: {{apartment.title}}</p>
+                <p>Bed: {{apartment.bed}}</p>
+                <p>Bathroom: {{apartment.bathroom}}</p>
+                <p>Flat are: {{apartment.flat_area}}</p>
+                <p>Address: {{apartment.address}}</p>
+                <p>Description: {{apartment.description}}</p>
+                <p>Price: {{apartment.price}}</p>
+                <p>Negotiable: {{apartment.negotiable}}</p>
+                <p>District: {{apartment.district}}</p>
+                <div class="tile-footer">
+                  <a class="btn btn-primary" href="{% url 'edit_apartment_service' apartment.id %}">Edit</a>
+                </div>
+                <form class="" action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <p>Comment: {{ form5.comment}}</p>
+                    <p>Rating: {{ form5.rate}}</p>
+                    <button type="submit" name="">Submit</button>
+                </form>
+                {% for comment in comment %}
+                  <p>comment: {{comment.comment}}</p>
+                  <p>rating: {{comment.rate}}</p>
+                {% endfor %}
+              {% elif ecommerce %}
+                {% if ecommerce.photo %}
+                  <img src="{{ ecommerce.photo.url }}" width="240" alt="service_pic">
+                {% endif %}
+                <p>Title: {{ecommerce.title}}</p>
+                <p>Description: {{ecommerce.description}}</p>
+                <p>Price: {{ecommerce.price}}</p>
+                <p>Negotiable: {{ecommerce.negotiable}}</p>
+                <p>Warrenty: {{ecommerce.warrenty}}</p>
+                <p>District: {{ecommerce.district}}</p>
+                <div class="tile-footer">
+                  <a class="btn btn-primary" href="{% url 'edit_ecommerce_service' ecommerce.id %}">Edit</a>
+                </div>
+                <form class="" action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <p>Comment: {{ form6.comment}}</p>
+                    <p>Rating: {{ form6.rate}}</p>
+                    <button type="submit" name="">Submit</button>
+                </form>
+                {% for comment in comment %}
+                  <p>comment: {{comment.comment}}</p>
+                  <p>rating: {{comment.rate}}</p>
+                {% endfor %}
+              {% elif education %}
+                {% if education.photo %}
+                    <img src="{{ education.photo.url }}" width="240" alt="service_pic">
+                {% endif %}
+                <p>Title: {{education.title}}</p>
+                <p>Study item: {{education.study_item}}</p>
+                <p>Description: {{education.description}}</p>
+                <p>Price: {{education.price}}</p>
+                <p>Negotiable: {{education.negotiable}}</p>
+                <p>District: {{education.district}}</p>
+                <div class="tile-footer">
+                  <a class="btn btn-primary" href="{% url 'edit_education_service' education.id %}">Edit</a>
+                </div>
+                <form class="" action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <p>Comment: {{ form7.comment}}</p>
+                    <p>Rating: {{ form7.rate}}</p>
+                    <button type="submit" name="">Submit</button>
+                </form>
+                {% for comment in comment %}
+                  <p>comment: {{comment.comment}}</p>
+                  <p>rating: {{comment.rate}}</p>
+                {% endfor %}
+              {% endif %}
+            </div>
+          </div>
+
+              </div>
+            </div>
+
+            <div class="tab-pane" id="user-timeline">
+              <div class="timeline-post">
+                <div class="post-media"><a href="#"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg"></a>
+                  <div class="content">
+                    <h5><a href="#">John Doe</a></h5>
+                    <p class="text-muted"><small>2 January at 9:30</small></p>
+                  </div>
+                </div>
+                <div class="post-content">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,	quis tion ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+                <ul class="post-utility">
+                  <li class="likes"><a href="#"><i class="fa fa-fw fa-lg fa-thumbs-o-up"></i>Like</a></li>
+                  <li class="shares"><a href="#"><i class="fa fa-fw fa-lg fa-share"></i>Share</a></li>
+                  <li class="comments"><i class="fa fa-fw fa-lg fa-comment-o"></i> 5 Comments</li>
+                </ul>
+              </div>
+              <div class="timeline-post">
+                <div class="post-media"><a href="#"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg"></a>
+                  <div class="content">
+                    <h5><a href="#">John Doe</a></h5>
+                    <p class="text-muted"><small>2 January at 9:30</small></p>
+                  </div>
+                </div>
+                <div class="post-content">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,	quis tion ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+                <ul class="post-utility">
+                  <li class="likes"><a href="#"><i class="fa fa-fw fa-lg fa-thumbs-o-up"></i>Like</a></li>
+                  <li class="shares"><a href="#"><i class="fa fa-fw fa-lg fa-share"></i>Share</a></li>
+                  <li class="comments"><i class="fa fa-fw fa-lg fa-comment-o"></i> 5 Comments</li>
+                </ul>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="user-settings">
+              <div class="tile user-settings">
+                <h4 class="line-head">Settings</h4>
+                <form>
+                  <div class="row mb-4">
+                    <div class="col-md-4">
+                      <label>First Name</label>
+                      <input class="form-control" type="text">
+                    </div>
+                    <div class="col-md-4">
+                      <label>Last Name</label>
+                      <input class="form-control" type="text">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-8 mb-4">
+                      <label>Email</label>
+                      <input class="form-control" type="text">
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-md-8 mb-4">
+                      <label>Mobile No</label>
+                      <input class="form-control" type="text">
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-md-8 mb-4">
+                      <label>Office Phone</label>
+                      <input class="form-control" type="text">
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-md-8 mb-4">
+                      <label>Home Phone</label>
+                      <input class="form-control" type="text">
+                    </div>
+                  </div>
+                  <div class="row mb-10">
+                    <div class="col-md-12">
+                      <button class="btn btn-primary" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i> Save</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+{% endblock %}

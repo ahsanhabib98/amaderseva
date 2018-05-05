@@ -1,0 +1,853 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-GB">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>Senseras</title>
+
+        <meta name="description" content="Senseras"/>
+        <link rel="shortcut icon" href="{% static 'image/favicon.png' %}" type="image/png"/>
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+
+        <!-- Style -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" />
+        <link rel="stylesheet" href="{% static 'css/main.css' %}" type="text/css" />
+        <link rel="stylesheet" href="{% static 'css/orange.css' %}" type="text/css" />
+
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <!-- Navigation / START -->
+        <nav class="navbar navbar-default">
+            <div class="container">
+
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Show menu</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <a class="navbar-brand" id="logo" href="#">
+                        <span class="highlight-text">Amader</span>Sheba
+                    </a>
+                </div>
+
+
+                <div id="navbar" class="navbar-collapse collapse">
+
+                    <ul class="nav navbar-nav navbar-right">
+
+                        <li style="background: #444;margin-right: 70px;" class="drop active">
+                          {% if request.user.is_authenticated %}
+                            <a href="{% url 'profile-detail' %}">
+                                আপনার বিজ্ঞাপন দিন
+                            </a>
+                          {% else %}
+                           <a href="{% url 'login' %}">
+                                আপনার বিজ্ঞাপন দিন
+                           </a>
+                          {% endif %}
+                        </li>
+
+                        <li style="background: #f36510 !important;" class="drop active">
+                            <a style="color: #fff" href="#">
+                                সকল বিজ্ঞাপন
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </nav><!-- Navigation / END -->
+
+        <!-- Headline / START -->
+        <div class="headline-divided headline-primary">
+
+            <div class="contents">
+
+                <div class="row">
+                    <div class="col-xs-12 col-md-4 info">
+
+                        <div class="page-subheader">
+                            <h2>Make most of our premium features</h2>
+                        </div>
+
+                        <div class="description">
+                            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,
+                            by injected humour, or randomised words which don't look even slightly believable.
+                            If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.
+                            All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary.
+                        </div>
+
+                        <div class="actions">
+                            <a class="btn btn-clear">Learn more</a>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-8 image">
+                        <img src="{% static 'image/headline/4.jpg' %}" alt="Headline item"/>
+                    </div>
+                </div>
+
+            </div>
+
+        </div><!-- Headline / END -->
+
+        <!-- Main content / START -->
+        <div id="content">
+
+            <!-- Headline / START -->
+            <div class="lg-block headline">
+
+                <div class="container">
+
+                    <div class="contents">
+
+                        <div class="row">
+
+                            <div class="col-xs-12 col-sm-12 col-md-5">
+
+                                <h2 class="strong upper">Premium features</h2>
+                                <p class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+                                standard dummy text ever since the 1500s</p>
+
+                            </div>
+
+                            <div class="col-xs-12 col-sm-12 col-md-7 text-right">
+
+                                <div class="actions">
+
+                                    <a href="#" class="btn btn-lg btn-primary">
+                                        Order now
+                                    </a>
+
+                                    <a href="#" class="btn btn-lg btn-default">
+                                        Learn more
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div><!-- Headline / END -->
+
+            <section id="portfolio">
+                <div class="container">
+
+                    <!-- Latest work / START -->
+                    <div class="lg-block text-center">
+
+                        <div class="title-big">
+                            <h1>Our Total Service</h1>
+                        </div>
+
+                        <div class="description">
+                            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,
+                            by injected humour, or randomised words which don't look even slightly believable.
+                            If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.
+                            All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary.
+                        </div>
+
+                    </div><!-- Latest work / END -->
+
+                    <!-- Gallery / START -->
+                    <ul class="gallery gallery-padded">
+                      {% for category in category %}
+                        {% if category.name == 'Mobile Phone' %}
+                          <li class="item color-hoverlay default">
+                              <img src="{{category.category_photo.url}}" alt="6"/>
+                              <div class="contents-container">
+                                  <div class="contents">
+                                      <div class="controls">
+                                          <a href="#" class="btn btn-dark"><i class="fa fa-search-plus"></i></a>
+                                          <a href="#" class="btn btn-dark"><i class="fa fa-link"></i></a>
+                                      </div>
+                                      <h2 class="strong upper"><a href="{% url 'categorywise_mobile' %}">{{category.name}}</a></h2>
+                                  </div>
+                              </div>
+                          </li>
+                        {% endif %}
+                        {% if category.name == 'Computing' %}
+                            <li class="item color-hoverlay default">
+                                <img src="{{category.category_photo.url}}" alt="6"/>
+                                <div class="contents-container">
+                                    <div class="contents">
+                                        <div class="controls">
+                                            <a href="#" class="btn btn-dark"><i class="fa fa-search-plus"></i></a>
+                                            <a href="#" class="btn btn-dark"><i class="fa fa-link"></i></a>
+                                        </div>
+                                        <h2 class="strong upper"><a href="{% url 'categorywise_compute' %}">{{category.name}}</a></h2>
+                                    </div>
+                                </div>
+                            </li>
+                        {% endif %}
+                        {% if category.name == 'Television' %}
+                            <li class="item color-hoverlay default">
+                                <img src="{{category.category_photo.url}}" alt="6"/>
+                                <div class="contents-container">
+                                    <div class="contents">
+                                        <div class="controls">
+                                            <a href="#" class="btn btn-dark"><i class="fa fa-search-plus"></i></a>
+                                            <a href="#" class="btn btn-dark"><i class="fa fa-link"></i></a>
+                                        </div>
+                                        <h2 class="strong upper"><a href="{% url 'categorywise_tv' %}">{{category.name}}</a></h2>
+                                    </div>
+                                </div>
+                            </li>
+                        {% endif %}
+                        {% if category.name == 'Others' %}
+                            <li class="item color-hoverlay default">
+                                <img src="{{category.category_photo.url}}" alt="6"/>
+                                <div class="contents-container">
+                                  <div class="contents">
+                                      <div class="controls">
+                                          <a href="#" class="btn btn-dark"><i class="fa fa-search-plus"></i></a>
+                                          <a href="#" class="btn btn-dark"><i class="fa fa-link"></i></a>
+                                      </div>
+                                      <h2 class="strong upper"><a href="{% url 'categorywise_other' %}">{{category.name}}</a></h2>
+                                    </div>
+                                  </div>
+                              </li>
+                        {% endif %}
+                        {% if category.name == 'Apartment' %}
+                            <li class="item color-hoverlay default">
+                              <img src="{{category.category_photo.url}}" alt="6"/>
+                              <div class="contents-container">
+                                <div class="contents">
+                                  <div class="controls">
+                                    <a href="#" class="btn btn-dark"><i class="fa fa-search-plus"></i></a>
+                                    <a href="#" class="btn btn-dark"><i class="fa fa-link"></i></a>
+                                  </div>
+                                  <h2 class="strong upper"><a href="{% url 'categorywise_apartment' %}">{{category.name}}</a></h2>
+                                </div>
+                              </div>
+                            </li>
+                        {% endif %}
+                        {% if category.name == 'Education' %}
+                            <li class="item color-hoverlay default">
+                              <img src="{{category.category_photo.url}}" alt="6"/>
+                              <div class="contents-container">
+                                <div class="contents">
+                                  <div class="controls">
+                                    <a href="#" class="btn btn-dark"><i class="fa fa-search-plus"></i></a>
+                                    <a href="#" class="btn btn-dark"><i class="fa fa-link"></i></a>
+                                  </div>
+                                  <h2 class="strong upper"><a href="{% url 'categorywise_education' %}">{{category.name}}</a></h2>
+                                </div>
+                              </div>
+                            </li>
+                        {% endif %}
+                        {% if category.name == 'Ecommerce' %}
+                            <li class="item color-hoverlay default">
+                              <img src="{{category.category_photo.url}}" alt="6"/>
+                              <div class="contents-container">
+                                <div class="contents">
+                                  <div class="controls">
+                                    <a href="#" class="btn btn-dark"><i class="fa fa-search-plus"></i></a>
+                                    <a href="#" class="btn btn-dark"><i class="fa fa-link"></i></a>
+                                  </div>
+                                  <h2 class="strong upper"><a href="{% url 'categorywise_ecommerce' %}">{{category.name}}</a></h2>
+                                </div>
+                              </div>
+                            </li>
+                         {% endif %}
+                        {% endfor %}
+
+                    </ul><!-- Gallery / END -->
+
+                </div><!-- Container / END -->
+            </section>
+
+            <section id="team">
+                <div class="container">
+
+                    <!-- Our team / START -->
+                    <div class="lg-block text-center">
+
+                        <div class="title-big">
+                            <h1>Our team</h1>
+                        </div>
+
+                        <div class="description">
+                            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,
+                            by injected humour, or randomised words which don't look even slightly believable.
+                        </div>
+
+                    </div><!-- Our team / END -->
+
+                    <div class="lg-block team">
+
+                        <div class="row">
+
+                            <div class="col-xs-6 col-md-3">
+
+                                <!-- Team member / START -->
+                                <div class="member">
+
+                                    <div class="color-hoverlay default">
+
+                                        <img alt="Team member" src="{% static 'image/team/1-1.jpg' %}"/>
+
+                                        <div class="contents-container">
+                                            <div class="contents">
+                                                <a href="#" class="btn btn-dark">
+                                                    <i class="fa fa-envelope"></i>
+                                                </a>
+                                                <a href="#" class="btn btn-dark">
+                                                    <i class="fa fa-link"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="info">
+                                        <div class="name">Jane Doe</div>
+                                        <div class="position">Manager</div>
+                                        <div class="description">
+                                            There are many variations of passages of Lorem Ipsum available.
+                                        </div>
+                                    </div>
+
+                                </div><!-- Team member / END -->
+
+                            </div>
+
+                            <div class="col-xs-6 col-md-3">
+
+                                <!-- Team member / START -->
+                                <div class="member">
+
+                                    <div class="color-hoverlay default">
+
+                                        <img alt="Team member" src="{% static 'image/team/2-2.jpg' %}"/>
+
+                                        <div class="contents-container">
+                                            <div class="contents">
+                                                <a href="#" class="btn btn-dark">
+                                                    <i class="fa fa-envelope"></i>
+                                                </a>
+                                                <a href="#" class="btn btn-dark">
+                                                    <i class="fa fa-link"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="info">
+                                        <div class="name">John Doe</div>
+                                        <div class="position">CTO</div>
+                                        <div class="description">
+                                            There are many variations of passages of Lorem Ipsum available.
+                                        </div>
+                                    </div>
+
+                                </div><!-- Team member / END -->
+
+                            </div>
+
+                            <div class="col-xs-6 col-md-3">
+
+                                <!-- Team member / START -->
+                                <div class="member">
+
+                                    <div class="color-hoverlay default">
+
+                                        <img alt="Team member" src="{% static 'image/team/3-3.jpg' %}"/>
+
+                                        <div class="contents-container">
+                                            <div class="contents">
+                                                <a href="#" class="btn btn-dark">
+                                                    <i class="fa fa-envelope"></i>
+                                                </a>
+                                                <a href="#" class="btn btn-dark">
+                                                    <i class="fa fa-link"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="info">
+                                        <div class="name">Jane Doe</div>
+                                        <div class="position">Marketing specialist</div>
+                                        <div class="description">
+                                            There are many variations of passages of Lorem Ipsum available.
+                                        </div>
+                                    </div>
+
+                                </div><!-- Team member / END -->
+
+                            </div>
+
+                            <div class="col-xs-6 col-md-3">
+
+                                <!-- Team member / START -->
+                                <div class="member">
+
+                                    <div class="color-hoverlay default">
+
+                                        <img alt="Team member" src="{% static 'image/team/4-4.jpg' %}"/>
+
+                                        <div class="contents-container">
+                                            <div class="contents">
+                                                <a href="#" class="btn btn-dark">
+                                                    <i class="fa fa-envelope"></i>
+                                                </a>
+                                                <a href="#" class="btn btn-dark">
+                                                    <i class="fa fa-link"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="info">
+                                        <div class="name">John Doe</div>
+                                        <div class="position">Programmer</div>
+                                        <div class="description">
+                                            There are many variations of passages of Lorem Ipsum available.
+                                        </div>
+                                    </div>
+
+                                </div><!-- Team member / END -->
+
+                            </div>
+
+                        </div>
+
+                    </div><!-- Team / END-->
+
+                </div><!-- Container / END -->
+            </section>
+
+            <section id="pricing">
+                <div class="bg-gray lg-padding-top lg-padding-bottom lg-margin-bottom">
+
+                    <div class="container">
+
+                        <!-- Pricing plans / START -->
+                        <div class="lg-block text-center">
+
+                            <div class="title-big">
+                                <h1>Our pricing plans will blow you away!</h1>
+                            </div>
+
+                            <div class="description">
+                                There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,
+                                by injected humour, or randomised words which don't look even slightly believable.
+                            </div>
+
+                        </div><!-- Pricing plans / END -->
+
+
+                        <div class="lg-block pricing-plans no-margin-bottom">
+
+                            <div class="row">
+
+                                <div class="col-xs-12 col-md-4">
+
+                                    <!-- Pricing plan / START -->
+                                    <div class="plan">
+                                        <div class="title">
+                                            <span>Basic</span>
+                                        </div>
+
+                                        <div class="price">49.99<span class="currency">€</span></div>
+
+                                        <ul class="features">
+                                            <li>1000 items</li>
+                                            <li>Limited usage</li>
+                                            <li>Up to 100 users</li>
+                                            <li>Free setup</li>
+                                        </ul>
+
+                                        <div class="actions">
+                                            <a class="btn">Order</a>
+                                        </div>
+
+                                    </div><!-- Pricing plan / END -->
+
+                                </div>
+
+                                <div class="col-xs-12 col-md-4">
+
+                                    <!-- Pricing plan / START -->
+                                    <div class="plan highlight">
+                                        <div class="title">
+                                            <span>Mega</span>
+                                        </div>
+
+                                        <div class="price">249.99<span class="currency">€</span></div>
+
+                                        <ul class="features">
+                                            <li>3000 items</li>
+                                            <li>Unlimited usage</li>
+                                            <li>Up to 500 users</li>
+                                            <li>Free setup</li>
+                                        </ul>
+
+                                        <div class="actions">
+                                            <a class="btn">Order</a>
+                                        </div>
+
+                                    </div><!-- Pricing plan / END -->
+
+                                </div>
+
+                                <div class="col-xs-12 col-md-4">
+
+                                    <!-- Pricing plan / START -->
+                                    <div class="plan">
+                                        <div class="title">
+                                            <span>Ultra</span>
+                                        </div>
+
+                                        <div class="price">
+                                            549.99<span class="currency">€</span>
+                                            <!--<div class="extra">hourly</div>-->
+                                        </div>
+
+                                        <ul class="features">
+                                            <li>7000 items</li>
+                                            <li>Limited usage</li>
+                                            <li>Up to 100 users</li>
+                                            <li>Free setup</li>
+                                        </ul>
+
+                                        <div class="actions">
+                                            <a class="btn">Order</a>
+                                        </div>
+
+                                    </div><!-- Pricing plan / END -->
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div><!-- Container / END -->
+
+                </div><!-- Bg gray / END -->
+            </section>
+
+            <section id="testimonials">
+                <div class="container">
+
+                    <!-- Testimonials / START -->
+                    <div class="block text-center">
+
+                        <div class="title-big">
+                            <h1>Testimonials</h1>
+                        </div>
+
+                    </div><!-- Testimonials / END -->
+
+                    <div class="lg-block testimonials">
+
+                        <div id="testimonials-carousel" class="carousel slide" data-ride="carousel">
+
+                            <ol class="carousel-indicators">
+                                <li data-target="#testimonials-carousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#testimonials-carousel" data-slide-to="1"></li>
+                            </ol>
+
+                            <div class="carousel-inner" role="listbox">
+                                <div class="item active">
+
+                                    <div class="row">
+
+                                        <!-- Testimonial / START -->
+                                        <div class="col-xs-12 col-sm-6 col-md-4 testimonial">
+
+                                            <div class="comment">
+                                                There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,
+                                                by injected humour, or randomised words which don't look even slightly believable.
+                                            </div>
+
+                                            <div class="person">
+
+                                                <img src="{% static 'image/testimonials/1.jpg' %}" alt="Person" class="pull-left"/>
+
+                                                <div class="description pull-left">
+                                                    <div class="name">John Doe</div>
+                                                    <div class="organization">Marketing, inc.</div>
+                                                </div>
+
+                                                <div class="clear"></div>
+
+                                            </div>
+
+                                        </div><!-- Testimonial / END -->
+
+                                        <!-- Testimonial / START -->
+                                        <div class="col-xs-12 col-sm-6 col-md-4 testimonial">
+
+                                            <div class="comment">
+                                                There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,
+                                                by injected humour, or randomised words which don't look even slightly believable.
+                                            </div>
+
+                                            <div class="person">
+
+                                                <img src="{% static 'image/testimonials/2.jpg' %}" alt="Person" class="pull-left"/>
+
+                                                <div class="description pull-left">
+                                                    <div class="name">John Doe</div>
+                                                    <div class="organization">Programming, inc.</div>
+                                                </div>
+
+                                                <div class="clear"></div>
+
+                                            </div>
+
+                                        </div><!-- Testimonial / END -->
+
+                                        <!-- Testimonial / START -->
+                                        <div class="col-xs-12 col-sm-12 col-md-4 testimonial">
+
+                                            <div class="comment">
+                                                There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,
+                                                by injected humour, or randomised words which don't look even slightly believable.
+                                            </div>
+
+                                            <div class="person">
+
+                                                <img src="{% static 'image/testimonials/3.jpg' %}" alt="Person" class="pull-left"/>
+
+                                                <div class="description pull-left">
+                                                    <div class="name">John Doe</div>
+                                                    <div class="organization">Customer satisfaction, inc.</div>
+                                                </div>
+
+                                                <div class="clear"></div>
+
+                                            </div>
+
+                                        </div><!-- Testimonial / END -->
+
+                                    </div><!-- Row / END -->
+
+                                </div><!-- Item / END -->
+
+                                <div class="item">
+
+                                    <div class="row">
+
+                                        <!-- Testimonial / START -->
+                                        <div class="col-xs-12 col-sm-6 col-md-4 testimonial">
+
+                                            <div class="comment">
+                                                There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,
+                                                by injected humour, or randomised words which don't look even slightly believable.
+                                            </div>
+
+                                            <div class="person">
+
+                                                <img src="{% static 'image/testimonials/4.jpg' %}" alt="Person" class="pull-left"/>
+
+                                                <div class="description pull-left">
+                                                    <div class="name">John Doe</div>
+                                                    <div class="organization">Food chain, inc.</div>
+                                                </div>
+
+                                                <div class="clear"></div>
+
+                                            </div>
+
+                                        </div><!-- Testimonial / END -->
+
+                                        <!-- Testimonial / START -->
+                                        <div class="col-xs-12 col-sm-6 col-md-4 testimonial">
+
+                                            <div class="comment">
+                                                There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,
+                                                by injected humour, or randomised words which don't look even slightly believable.
+                                            </div>
+
+                                            <div class="person">
+
+                                                <img src="{% static 'image/testimonials/5.jpg' %}" alt="Person" class="pull-left"/>
+
+                                                <div class="description pull-left">
+                                                    <div class="name">John Doe</div>
+                                                    <div class="organization">Service industry, inc.</div>
+                                                </div>
+
+                                                <div class="clear"></div>
+
+                                            </div>
+
+                                        </div><!-- Testimonial / END -->
+
+                                        <!-- Testimonial / START -->
+                                        <div class="col-xs-12 col-sm-12 col-md-4 testimonial">
+
+                                            <div class="comment">
+                                                There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,
+                                                by injected humour, or randomised words which don't look even slightly believable.
+                                            </div>
+
+                                            <div class="person">
+
+                                                <img src="{% static 'image/testimonials/6.png' %}" alt="Person" class="pull-left"/>
+
+                                                <div class="description pull-left">
+                                                    <div class="name">John Doe</div>
+                                                    <div class="organization">Management, inc.</div>
+                                                </div>
+
+                                                <div class="clear"></div>
+
+                                            </div>
+
+                                        </div><!-- Testimonial / END -->
+
+                                    </div><!-- Row / END -->
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div><!-- Content / END -->
+
+                </div><!-- Container / END -->
+            </section>
+
+            <!-- Contact / START -->
+            <footer class="headline-divided headline-primary no-margin-bottom">
+
+                <div class="contents">
+
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6 info left-section">
+
+                            <div class="page-subheader">
+                                <h2>Senseras</h2>
+                            </div>
+
+                            <div class="description sm-block">
+                                There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,
+                                by injected humour, or randomised words which don't look even slightly believable.
+                            </div>
+
+                            <div class="sm-block footer-buttons">
+                                <a href="#" class="btn btn-clear">About</a>
+                                <a href="#" class="btn btn-clear">Terms and conditions</a>
+                                <a href="#" class="btn btn-clear">Cookie policy</a>
+                            </div>
+
+                            <div class="sm-block address">
+                                <p>Kamppi 92/1, Helsinki 1234</p>
+                                <p>+333 5483 2348</p>
+                                <p>info@senseras.com</p>
+                            </div>
+
+                            <div class="social-footer">
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-youtube"></i></a>
+                                <a href="#"><i class="fa fa-google"></i></a>
+                            </div>
+
+                        </div>
+                        <div class="col-xs-12 col-md-6 bg-dark right-section">
+
+                            <div class="page-subheader">
+                                <h2>Contact us</h2>
+                            </div>
+
+                            <form method="POST">
+                              {% csrf_token %}
+
+                                <!-- <div class="form-group">
+                                    <div class="controls">
+                                        <input type="text" placeholder="Name" class="form-control input"/>
+                                    </div>
+                                </div> -->
+
+                                <div class="form-group">
+                                    <div class="controls">
+                                      From email:
+                                      {{ form.from_email }}
+                                        <!-- <input type="text" placeholder="Email" class="form-control input"/> -->
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="controls">
+                                      Subject:
+                                      {{ form.subject }}
+                                        <!-- <input type="text" placeholder="Subject" class="form-control input"/> -->
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <div class="controls">
+                                      Message:
+                                      {{ form.message }}
+                                        <!-- <textarea placeholder="Message" class="form-control textarea"></textarea> -->
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+
+                                    <button class="btn btn-clear">Send message</button>
+
+                                </div>
+
+                            </form>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </footer><!-- Contact / END -->
+
+        </div><!-- Main content / END -->
+
+        <footer class="footer">
+            <div class="container">
+
+                <span class="copyright">
+                    Copyright 2018. All rights served.
+                </span>
+
+                <span class="links">
+                    <a href="#">Terms of service</a>
+                    <a href="#">Privacy policy</a>
+                </span>
+
+            </div>
+        </footer>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        <script src="js/main.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    </body>
+</html>

@@ -1,0 +1,511 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Profile - Amader Sheba< {% endblock %}
+
+{% block contents %}
+    <!-- Sidebar menu-->
+    <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+    <aside class="app-sidebar">
+      <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg" alt="User Image">
+        <div>
+          <p class="app-sidebar__user-name">John Doe</p>
+          <p class="app-sidebar__user-designation">Frontend Developer</p>
+        </div>
+      </div>
+      <ul class="app-menu">
+        <li><a class="app-menu__item" href="index.html"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">UI Elements</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+          <ul class="treeview-menu">
+            <li><a class="treeview-item" href="bootstrap-components.html"><i class="icon fa fa-circle-o"></i> Bootstrap Elements</a></li>
+            <li><a class="treeview-item" href="https://fontawesome.com/v4.7.0/icons/" target="_blank" rel="noopener"><i class="icon fa fa-circle-o"></i> Font Icons</a></li>
+            <li><a class="treeview-item" href="ui-cards.html"><i class="icon fa fa-circle-o"></i> Cards</a></li>
+            <li><a class="treeview-item" href="widgets.html"><i class="icon fa fa-circle-o"></i> Widgets</a></li>
+          </ul>
+        </li>
+        <li><a class="app-menu__item" href="charts.html"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Charts</span></a></li>
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-edit"></i><span class="app-menu__label">Forms</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+          <ul class="treeview-menu">
+            <li><a class="treeview-item" href="form-components.html"><i class="icon fa fa-circle-o"></i> Form Components</a></li>
+            <li><a class="treeview-item" href="form-custom.html"><i class="icon fa fa-circle-o"></i> Custom Components</a></li>
+            <li><a class="treeview-item" href="form-samples.html"><i class="icon fa fa-circle-o"></i> Form Samples</a></li>
+            <li><a class="treeview-item" href="form-notifications.html"><i class="icon fa fa-circle-o"></i> Form Notifications</a></li>
+          </ul>
+        </li>
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Tables</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+          <ul class="treeview-menu">
+            <li><a class="treeview-item" href="table-basic.html"><i class="icon fa fa-circle-o"></i> Basic Tables</a></li>
+            <li><a class="treeview-item" href="table-data-table.html"><i class="icon fa fa-circle-o"></i> Data Tables</a></li>
+          </ul>
+        </li>
+        <li class="treeview is-expanded"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Add service</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+          <ul class="treeview-menu">
+            <li><a class="treeview-item" href="{% url 'create_mobilephone_service' %}"><i class="icon fa fa-circle-o"></i> Mobile Phone</a></li>
+            <li><a class="treeview-item" href="{% url 'create_computing_service' %}"><i class="icon fa fa-circle-o"></i> Computer</a></li>
+            <li><a class="treeview-item" href="{% url 'create_television_service' %}"><i class="icon fa fa-circle-o"></i> Television</a></li>
+            <li><a class="treeview-item active" href="{% url 'create_apartment_service' %}"><i class="icon fa fa-circle-o"></i> Apartment</a></li>
+            <li><a class="treeview-item" href="{% url 'create_education_service' %}"><i class="icon fa fa-circle-o"></i> Education</a></li>
+            <li><a class="treeview-item" href="{% url 'create_ecommerce_service' %}"><i class="icon fa fa-circle-o"></i> Ecommerce </a></li>
+            <li><a class="treeview-item" href="{% url 'create_others_service' %}"><i class="icon fa fa-circle-o"></i>Others</a></li>
+          </ul>
+        </li>
+      </ul>
+    </aside>
+    <main class="app-content">
+      <div class="row user">
+        <div class="col-md-12">
+          <div class="profile">
+            <div class="info"><img class="user-img" src="https://scontent-sit4-1.xx.fbcdn.net/v/t31.0-8/22552989_1104967996303684_8488203262383218336_o.jpg?_nc_cat=0&_nc_eui2=v1%3AAeFoALLg69bgHInWZxFYh2ccGMreC2DgEjqdoeY0dC6bLZVJYDIzYR9ony-H5E29mxtzyxjkTP2AVhy2bg0niZliv_9HZFlrDVwTk1nOeUYDCQ&oh=c7166165d16b635fb16564fa55aa0197&oe=5B9C7946">
+              <!-- <h4>{{user.username}}</h4>
+              <p>{{user.email}}</p> -->
+            </div>
+            <div class="cover-image"></div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="tile p-0">
+            <ul class="nav flex-column nav-tabs user-tabs">
+              <li class="nav-item"><a class="nav-link active" href="#user-service" data-toggle="tab">Service  Field</a></li>
+              <li class="nav-item"><a class="nav-link" href="#user-timeline" data-toggle="tab">Timeline</a></li>
+              <li class="nav-item"><a class="nav-link" href="#user-settings" data-toggle="tab">Settings</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <div class="tab-content">
+            <div class="tab-pane active" id="user-service">
+              <div class="timeline-post">
+
+          <div class="tile">
+            <h3 class="tile-title">Vertical Form</h3>
+            <div class="tile-body">
+              <form class="" action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% if form1 %}
+                  <div class="form-group">
+                    <label class="control-label">Name</label>
+                    {{ form1.title }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Condition</label>
+                    {{ form1.condition }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Brand</label>
+                    {{ form1.brand }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Three g</label>
+                    {{ form1.thtree_g }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Four g</label>
+                    {{ form1.four_g }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Touch screen</label>
+                    {{ form1.touch_screen }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Description</label>
+                    {{ form1.description }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Model</label>
+                    {{ form1.model }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Price</label>
+                    {{ form1.price }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Negotiable</label>
+                    {{ form1.negotiable }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Category</label>
+                    {{ form1.category }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Division</label>
+                    {{ form1.division }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">District</label>
+                    {{ form1.district }}
+                  </div>
+
+                  <div class="form-group">
+                    <label class="control-label">Identity Proof</label>
+                    {{ form1.photo }}
+                  </div>
+                {% elif form2 %}
+                  <div class="form-group">
+                    <label class="control-label">Name</label>
+                    {{ form2.title }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Condition</label>
+                    {{ form2.condition }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Brand</label>
+                    {{ form2.brand }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Desktop</label>
+                    {{ form2.desktop }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Laptop</label>
+                    {{ form2.laptop }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Tablet</label>
+                    {{ form2.tablet }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Monitor</label>
+                    {{ form2.monitor }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Model</label>
+                    {{ form2.model }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Configuration</label>
+                    {{ form2.configuration }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Description</label>
+                    {{ form2.description }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Price</label>
+                    {{ form2.price }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Negotiable</label>
+                    {{ form2.negotiable }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Category</label>
+                    {{ form2.category }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Division</label>
+                    {{ form2.division }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">District</label>
+                    {{ form2.district }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Identity Proof</label>
+                    {{ form2.photo }}
+                  </div>
+                {% elif form3 %}
+                  <div class="form-group">
+                    <label class="control-label">Name</label>
+                    {{ form3.title }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Condition</label>
+                    {{ form3.condition }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Brand</label>
+                    {{ form3.brand }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Model</label>
+                    {{ form3.model }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Description</label>
+                    {{ form3.description }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Price</label>
+                    {{ form3.price }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Negotiable</label>
+                    {{ form3.negotiable }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Category</label>
+                    {{ form3.category }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Division</label>
+                    {{ form3.division }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">District</label>
+                    {{ form3.district }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Identity Proof</label>
+                    {{ form3.photo }}
+                  </div>
+                {% elif form4 %}
+                  <div class="form-group">
+                    <label class="control-label">Name</label>
+                    {{ form4.title }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Condition</label>
+                    {{ form4.condition }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Description</label>
+                    {{ form4.description }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Price</label>
+                    {{ form4.price }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Negotiable</label>
+                    {{ form4.negotiable }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Category</label>
+                    {{ form4.category }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Division</label>
+                    {{ form4.division }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">District</label>
+                    {{ form4.district }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Identity Proof</label>
+                    {{ form4.photo }}
+                  </div>
+                {% elif form5 %}
+                  <div class="form-group">
+                    <label class="control-label">Name</label>
+                    {{ form5.title }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Bed</label>
+                    {{ form5.bed }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Bathroom</label>
+                    {{ form5.bathroom }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Flat area</label>
+                    {{ form5.flat_area }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Address</label>
+                    {{ form5.address }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Description</label>
+                    {{ form5.description }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Price</label>
+                    {{ form5.price }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Negotiable</label>
+                    {{ form5.negotiable }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Category</label>
+                    {{ form5.category }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Division</label>
+                    {{ form5.division }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">District</label>
+                    {{ form5.district }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Identity Proof</label>
+                    {{ form5.photo }}
+                  </div>
+                {% elif form6 %}
+                  <div class="form-group">
+                    <label class="control-label">Name</label>
+                    {{ form6.title }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Description</label>
+                    {{ form6.description }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Price</label>
+                    {{ form6.price }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Negotiable</label>
+                    {{ form6.negotiable }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Warrenty</label>
+                    {{ form6.warrenty }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Category</label>
+                    {{ form6.category }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Division</label>
+                    {{ form6.division }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">District</label>
+                    {{ form6.district }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Identity Proof</label>
+                    {{ form6.photo }}
+                  </div>
+                {% elif form7 %}
+                  <div class="form-group">
+                    <label class="control-label">Name</label>
+                    {{ form7.title }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Study item</label>
+                    {{ form7.study_item }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Description</label>
+                    {{ form7.description }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Price</label>
+                    {{ form7.price }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Negotiable</label>
+                    {{ form7.negotiable }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Category</label>
+                    {{ form7.category }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Division</label>
+                    {{ form7.division }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">District</label>
+                    {{ form7.district }}
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Identity Proof</label>
+                    {{ form7.photo }}
+                  </div>
+                {% endif %}
+                <div class="form-group">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox">I accept the terms and conditions
+                    </label>
+                  </div>
+                </div>
+                <div class="tile-footer">
+                  <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Register</button>&nbsp;&nbsp;&nbsp;<a class="btn btn-secondary" href="#"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancel</a>
+                </div>
+              </form>
+            </div>
+          </div>
+
+              </div>
+            </div>
+
+            <div class="tab-pane" id="user-timeline">
+              <div class="timeline-post">
+                <div class="post-media"><a href="#"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg"></a>
+                  <div class="content">
+                    <h5><a href="#">John Doe</a></h5>
+                    <p class="text-muted"><small>2 January at 9:30</small></p>
+                  </div>
+                </div>
+                <div class="post-content">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,	quis tion ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+                <ul class="post-utility">
+                  <li class="likes"><a href="#"><i class="fa fa-fw fa-lg fa-thumbs-o-up"></i>Like</a></li>
+                  <li class="shares"><a href="#"><i class="fa fa-fw fa-lg fa-share"></i>Share</a></li>
+                  <li class="comments"><i class="fa fa-fw fa-lg fa-comment-o"></i> 5 Comments</li>
+                </ul>
+              </div>
+              <div class="timeline-post">
+                <div class="post-media"><a href="#"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg"></a>
+                  <div class="content">
+                    <h5><a href="#">John Doe</a></h5>
+                    <p class="text-muted"><small>2 January at 9:30</small></p>
+                  </div>
+                </div>
+                <div class="post-content">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,	quis tion ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+                <ul class="post-utility">
+                  <li class="likes"><a href="#"><i class="fa fa-fw fa-lg fa-thumbs-o-up"></i>Like</a></li>
+                  <li class="shares"><a href="#"><i class="fa fa-fw fa-lg fa-share"></i>Share</a></li>
+                  <li class="comments"><i class="fa fa-fw fa-lg fa-comment-o"></i> 5 Comments</li>
+                </ul>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="user-settings">
+              <div class="tile user-settings">
+                <h4 class="line-head">Settings</h4>
+                <form>
+                  <div class="row mb-4">
+                    <div class="col-md-4">
+                      <label>First Name</label>
+                      <input class="form-control" type="text">
+                    </div>
+                    <div class="col-md-4">
+                      <label>Last Name</label>
+                      <input class="form-control" type="text">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-8 mb-4">
+                      <label>Email</label>
+                      <input class="form-control" type="text">
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-md-8 mb-4">
+                      <label>Mobile No</label>
+                      <input class="form-control" type="text">
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-md-8 mb-4">
+                      <label>Office Phone</label>
+                      <input class="form-control" type="text">
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-md-8 mb-4">
+                      <label>Home Phone</label>
+                      <input class="form-control" type="text">
+                    </div>
+                  </div>
+                  <div class="row mb-10">
+                    <div class="col-md-12">
+                      <button class="btn btn-primary" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i> Save</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+{% endblock %}

@@ -106,7 +106,7 @@ def details_mobilephone_service(request, id):
             obj = form1.save(commit=False)
             obj.service = mobilephone
             obj.save()
-            return redirect('detail_mobilephone_service', id=obj.id)
+            return redirect('detail_mobilephone_service', id=id)
     context = {
         'mobilephone':mobilephone,
         'comment':comment,
@@ -150,7 +150,7 @@ def details_computing_service(request, id):
             obj = form2.save(commit=False)
             obj.service = computing
             obj.save()
-            return redirect('detail_computing_service', id=obj.id)
+            return redirect('detail_computing_service', id=id)
     context = {
         'computing':computing,
         'comment':comment,
@@ -194,7 +194,7 @@ def details_television_service(request, id):
             obj = form3.save(commit=False)
             obj.service = television
             obj.save()
-            return redirect('detail_television_service', id=obj.id)
+            return redirect('detail_television_service', id=id)
     context = {
         'television':television,
         'comment':comment,
@@ -238,7 +238,7 @@ def details_others_service(request, id):
             obj = form4.save(commit=False)
             obj.service = others
             obj.save()
-            return redirect('detail_others_service', id=obj.id)
+            return redirect('detail_others_service', id=id)
     context = {
         'others':others,
         'comment':comment,
@@ -283,7 +283,7 @@ def details_apartment_service(request, id):
             obj = form5.save(commit=False)
             obj.service = apartment
             obj.save()
-            return redirect('detail_apartment_service', id=obj.id)
+            return redirect('detail_apartment_service', id=id)
     context = {
         'apartment':apartment,
         'comment':comment,
@@ -328,7 +328,7 @@ def details_ecommerce_service(request, id):
             obj = form6.save(commit=False)
             obj.service = ecommerce
             obj.save()
-            return redirect('detail_ecommerce_service', id=obj.id)
+            return redirect('detail_ecommerce_service', id=id)
     context = {
         'ecommerce':ecommerce,
         'comment':comment,
@@ -373,7 +373,7 @@ def details_education_service(request, id):
             obj = form7.save(commit=False)
             obj.service = education
             obj.save()
-            return redirect('detail_education_service', id=obj.id)
+            return redirect('detail_education_service', id=id)
     context = {
         'education':education,
         'comment':comment,

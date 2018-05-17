@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -38,6 +39,7 @@ class MobilePhone(models.Model):
     model = models.CharField(max_length=100)
     price = models.IntegerField()
     negotiable = models.BooleanField(default=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     division = models.ForeignKey(Division, on_delete=models.CASCADE)
     district = models.ForeignKey(District, on_delete=models.CASCADE)
@@ -65,6 +67,7 @@ class Computing(models.Model):
     description = models.TextField()
     price = models.IntegerField()
     negotiable = models.BooleanField(default=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     division = models.ForeignKey(Division, on_delete=models.CASCADE)
     district = models.ForeignKey(District, on_delete=models.CASCADE)
@@ -88,6 +91,7 @@ class Television(models.Model):
     description = models.TextField()
     price = models.IntegerField()
     negotiable = models.BooleanField(default=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     division = models.ForeignKey(Division, on_delete=models.CASCADE)
     district = models.ForeignKey(District, on_delete=models.CASCADE)
@@ -108,6 +112,7 @@ class Others(models.Model):
     description = models.TextField()
     price = models.IntegerField()
     negotiable = models.BooleanField(default=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     division = models.ForeignKey(Division, on_delete=models.CASCADE)
     district = models.ForeignKey(District, on_delete=models.CASCADE)
@@ -127,6 +132,7 @@ class Apartment(models.Model):
     description = models.TextField()
     price = models.IntegerField()
     negotiable = models.BooleanField(default=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     division = models.ForeignKey(Division, on_delete=models.CASCADE)
     district = models.ForeignKey(District, on_delete=models.CASCADE)
@@ -143,6 +149,7 @@ class Ecommerce(models.Model):
     price = models.IntegerField()
     negotiable = models.BooleanField(default=True)
     warrenty = models.CharField(max_length=100)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     division = models.ForeignKey(Division, on_delete=models.CASCADE)
     district = models.ForeignKey(District, on_delete=models.CASCADE)
@@ -163,6 +170,7 @@ class Education(models.Model):
     description = models.TextField()
     price = models.IntegerField()
     negotiable = models.BooleanField(default=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     division = models.ForeignKey(Division, on_delete=models.CASCADE)
     district = models.ForeignKey(District, on_delete=models.CASCADE)

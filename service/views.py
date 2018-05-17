@@ -153,6 +153,7 @@ def create_mobilephone_service(request):
         form1 = MobilePhoneForm(request.POST, request.FILES)
         if form1.is_valid():
             obj = form1.save(commit=False)
+            obj.user = request.user
             obj.save()
             return redirect('detail_mobilephone_service', id=obj.id)
     context = {'form1':form1}
@@ -199,6 +200,7 @@ def create_computing_service(request):
         form2 = ComputingForm(request.POST, request.FILES)
         if form2.is_valid():
             obj = form2.save(commit=False)
+            obj.user = request.user
             obj.save()
             return redirect('detail_computing_service', id=obj.id)
     context = {'form2':form2}
@@ -245,6 +247,7 @@ def create_television_service(request):
         form3 = TelevisionForm(request.POST, request.FILES)
         if form3.is_valid():
             obj = form3.save(commit=False)
+            obj.user = request.user
             obj.save()
             return redirect('detail_television_service', id=obj.id)
     context = {'form3':form3}
@@ -291,6 +294,7 @@ def create_others_service(request):
         form4 = OthersForm(request.POST, request.FILES)
         if form4.is_valid():
             obj = form4.save(commit=False)
+            obj.user = request.user
             obj.save()
             return redirect('detail_others_service', id=obj.id)
     context = {'form4':form4}
@@ -337,6 +341,7 @@ def create_apartment_service(request):
         form5 = ApartmentForm(request.POST, request.FILES)
         if form5.is_valid():
             obj = form5.save(commit=False)
+            obj.user = request.user
             obj.save()
             return redirect('detail_apartment_service', id=obj.id)
     context = {'form5':form5}
@@ -384,6 +389,7 @@ def create_ecommerce_service(request):
         form6 = EcommerceForm(request.POST, request.FILES)
         if form6.is_valid():
             obj = form6.save(commit=False)
+            obj.user = request.user
             obj.save()
             return redirect('detail_ecommerce_service', id=obj.id)
     context = {'form6':form6}
@@ -431,6 +437,7 @@ def create_education_service(request):
         form7 = EducationForm(request.POST, request.FILES)
         if form7.is_valid():
             obj = form7.save(commit=False)
+            obj.user = request.user
             obj.save()
             return redirect('detail_education_service', id=obj.id)
     context = {'form7':form7}

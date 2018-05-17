@@ -94,15 +94,17 @@
                 <p>Price: {{mobilephone.price}}</p>
                 <p>Negotiable: {{mobilephone.negotiable}}</p>
                 <p>District: {{mobilephone.district}}</p>
-                <div class="tile-footer">
-                  <a class="btn btn-primary" href="{% url 'edit_mobilephone_service' mobilephone.id  %}">Edit</a>
-                </div>
-                <form class="" action="" method="POST" enctype="multipart/form-data">
-                    {% csrf_token %}
-                      <p>Comment: {{ form1.comment}}</p>
-                      <p>Rating: {{ form1.rate}}</p>
-                    <button type="submit" name="">Submit</button>
-                </form>
+                {% if request.user.is_authenticated %}
+                    <div class="tile-footer">
+                      <a class="btn btn-primary" href="{% url 'edit_mobilephone_service' mobilephone.id  %}">Edit</a>
+                    </div>
+                    <form class="" action="" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                          <p>Comment: {{ form1.comment}}</p>
+                          <p>Rating: {{ form1.rate}}</p>
+                        <button type="submit" name="">Submit</button>
+                    </form>
+                 {% endif %}
                 {% for comment in comment %}
                   <p>comment: {{comment.comment}}</p>
                   <p>rating: {{comment.rate}}</p>
@@ -124,15 +126,17 @@
                 <p>Price: {{computing.price}}</p>
                 <p>Negotiable: {{computing.negotiable}}</p>
                 <p>District: {{computing.district}}</p>
-                <div class="tile-footer">
-                  <a class="btn btn-primary" href="{% url 'edit_computing_service' computing.id %}">Edit</a>
-                </div>
-                <form class="" action="" method="POST" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <p>Comment: {{ form2.comment}}</p>
-                    <p>Rating: {{ form2.rate}}</p>
-                    <button type="submit" name="">Submit</button>
-                </form>
+                {% if request.user.is_authenticated %}
+                    <div class="tile-footer">
+                      <a class="btn btn-primary" href="{% url 'edit_computing_service' computing.id %}">Edit</a>
+                    </div>
+                    <form class="" action="" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <p>Comment: {{ form2.comment}}</p>
+                        <p>Rating: {{ form2.rate}}</p>
+                        <button type="submit" name="">Submit</button>
+                    </form>
+                {% endif %}
                 {% for comment in comment %}
                   <p>comment: {{comment.comment}}</p>
                   <p>rating: {{comment.rate}}</p>
@@ -149,15 +153,17 @@
                 <p>Price: {{television.price}}</p>
                 <p>Negotiable: {{television.negotiable}}</p>
                 <p>District: {{television.district}}</p>
-                <div class="tile-footer">
-                  <a class="btn btn-primary" href="{% url 'edit_television_service' television.id %}">Edit</a>
-                </div>
-                <form class="" action="" method="POST" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <p>Comment: {{ form3.comment}}</p>
-                    <p>Rating: {{ form3.rate}}</p>
-                    <button type="submit" name="">Submit</button>
-                </form>
+                {% if request.user.is_authenticated %}
+                    <div class="tile-footer">
+                      <a class="btn btn-primary" href="{% url 'edit_television_service' television.id %}">Edit</a>
+                    </div>
+                    <form class="" action="" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <p>Comment: {{ form3.comment}}</p>
+                        <p>Rating: {{ form3.rate}}</p>
+                        <button type="submit" name="">Submit</button>
+                    </form>
+                {% endif %}
                 {% for comment in comment %}
                   <p>comment: {{comment.comment}}</p>
                   <p>rating: {{comment.rate}}</p>
@@ -172,15 +178,17 @@
                 <p>Price: {{others.price}}</p>
                 <p>Negotiable: {{others.negotiable}}</p>
                 <p>District: {{others.district}}</p>
-                <div class="tile-footer">
-                  <a class="btn btn-primary" href="{% url 'edit_others_service' others.id %}">Edit</a>
-                </div>
-                <form class="" action="" method="POST" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <p>Comment: {{ form4.comment}}</p>
-                    <p>Rating: {{ form4.rate}}</p>
-                    <button type="submit" name="">Submit</button>
-                </form>
+                {% if request.user.is_authenticated %}
+                    <div class="tile-footer">
+                      <a class="btn btn-primary" href="{% url 'edit_others_service' others.id %}">Edit</a>
+                    </div>
+                    <form class="" action="" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <p>Comment: {{ form4.comment}}</p>
+                        <p>Rating: {{ form4.rate}}</p>
+                        <button type="submit" name="">Submit</button>
+                    </form>
+                {% endif %}
                 {% for comment in comment %}
                   <p>comment: {{comment.comment}}</p>
                   <p>rating: {{comment.rate}}</p>
@@ -198,15 +206,17 @@
                 <p>Price: {{apartment.price}}</p>
                 <p>Negotiable: {{apartment.negotiable}}</p>
                 <p>District: {{apartment.district}}</p>
-                <div class="tile-footer">
-                  <a class="btn btn-primary" href="{% url 'edit_apartment_service' apartment.id %}">Edit</a>
-                </div>
-                <form class="" action="" method="POST" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <p>Comment: {{ form5.comment}}</p>
-                    <p>Rating: {{ form5.rate}}</p>
-                    <button type="submit" name="">Submit</button>
-                </form>
+                {% if request.user.is_authenticated %}
+                    <div class="tile-footer">
+                      <a class="btn btn-primary" href="{% url 'edit_apartment_service' apartment.id %}">Edit</a>
+                    </div>
+                    <form class="" action="" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <p>Comment: {{ form5.comment}}</p>
+                        <p>Rating: {{ form5.rate}}</p>
+                        <button type="submit" name="">Submit</button>
+                    </form>
+                {% endif %}
                 {% for comment in comment %}
                   <p>comment: {{comment.comment}}</p>
                   <p>rating: {{comment.rate}}</p>
@@ -221,15 +231,17 @@
                 <p>Negotiable: {{ecommerce.negotiable}}</p>
                 <p>Warrenty: {{ecommerce.warrenty}}</p>
                 <p>District: {{ecommerce.district}}</p>
-                <div class="tile-footer">
-                  <a class="btn btn-primary" href="{% url 'edit_ecommerce_service' ecommerce.id %}">Edit</a>
-                </div>
-                <form class="" action="" method="POST" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <p>Comment: {{ form6.comment}}</p>
-                    <p>Rating: {{ form6.rate}}</p>
-                    <button type="submit" name="">Submit</button>
-                </form>
+                {% if request.user.is_authenticated %}
+                    <div class="tile-footer">
+                      <a class="btn btn-primary" href="{% url 'edit_ecommerce_service' ecommerce.id %}">Edit</a>
+                    </div>
+                    <form class="" action="" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <p>Comment: {{ form6.comment}}</p>
+                        <p>Rating: {{ form6.rate}}</p>
+                        <button type="submit" name="">Submit</button>
+                    </form>
+                {% endif %}
                 {% for comment in comment %}
                   <p>comment: {{comment.comment}}</p>
                   <p>rating: {{comment.rate}}</p>
@@ -244,15 +256,17 @@
                 <p>Price: {{education.price}}</p>
                 <p>Negotiable: {{education.negotiable}}</p>
                 <p>District: {{education.district}}</p>
-                <div class="tile-footer">
-                  <a class="btn btn-primary" href="{% url 'edit_education_service' education.id %}">Edit</a>
-                </div>
-                <form class="" action="" method="POST" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <p>Comment: {{ form7.comment}}</p>
-                    <p>Rating: {{ form7.rate}}</p>
-                    <button type="submit" name="">Submit</button>
-                </form>
+                {% if request.user.is_authenticated %}
+                    <div class="tile-footer">
+                      <a class="btn btn-primary" href="{% url 'edit_education_service' education.id %}">Edit</a>
+                    </div>
+                    <form class="" action="" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <p>Comment: {{ form7.comment}}</p>
+                        <p>Rating: {{ form7.rate}}</p>
+                        <button type="submit" name="">Submit</button>
+                    </form>
+                {% endif %}
                 {% for comment in comment %}
                   <p>comment: {{comment.comment}}</p>
                   <p>rating: {{comment.rate}}</p>

@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponseRedirect, Http404
+from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 from message.models import *
 from message.forms import *
 from .forms import *
@@ -63,6 +65,66 @@ def categorywise_education(request):
     template = 'service/categorywise-service.html'
     return render(request, template, context)
 
+def searchingwise_service(request):
+    query = request.GET.get("q", None)
+
+    mobile = MobilePhone.objects.all()
+    compute = Computing.objects.all()
+    tv = Television.objects.all()
+    other = Others.objects.all()
+    apartment = Apartment.objects.all()
+    ecommerce = Ecommerce.objects.all()
+    education = Education.objects.all()
+
+    if query is not None:
+        mobile = mobile.filter(
+                Q(title__icontains=query) |
+                Q(description__icontains=query) |
+                Q(category__name__icontains=query)
+                )
+        compute = compute.filter(
+                Q(title__icontains=query) |
+                Q(description__icontains=query) |
+                Q(category__name__icontains=query)
+                )
+        tv = tv.filter(
+                Q(title__icontains=query) |
+                Q(description__icontains=query) |
+                Q(category__name__icontains=query)
+                )
+        other = other.filter(
+                Q(title__icontains=query) |
+                Q(description__icontains=query) |
+                Q(category__name__icontains=query)
+                )
+        apartment = apartment.filter(
+                Q(title__icontains=query) |
+                Q(description__icontains=query) |
+                Q(category__name__icontains=query)
+                )
+        ecommerce = ecommerce.filter(
+                Q(title__icontains=query) |
+                Q(description__icontains=query) |
+                Q(category__name__icontains=query)
+                )
+        education = education.filter(
+                Q(title__icontains=query) |
+                Q(description__icontains=query) |
+                Q(category__name__icontains=query)
+                )
+
+    context = {
+        'mobile':mobile,
+        'compute':compute,
+        'tv':tv,
+        'other':other,
+        'apartment':apartment,
+        'ecommerce':ecommerce,
+        'education':education,
+    }
+    template = 'service/service-list.html'
+    return render(request, template, context)
+
 def service_list(request):
     mobile = MobilePhone.objects.all().order_by('-id')[:2]
     compute = Computing.objects.all().order_by('-id')[:2]
@@ -84,6 +146,7 @@ def service_list(request):
     template = 'service/service-list.html'
     return render(request, template, context)
 
+@login_required(login_url='login')
 def create_mobilephone_service(request):
     form1 = MobilePhoneForm()
     if request.method == 'POST':
@@ -115,6 +178,7 @@ def details_mobilephone_service(request, id):
     template = 'service/service-details.html'
     return render(request, template, context)
 
+@login_required(login_url='login')
 def edit_mobilephone_service(request, id):
     mobilephone = get_object_or_404(MobilePhone, id=id)
     form1 = MobilePhoneForm(instance=mobilephone)
@@ -128,6 +192,7 @@ def edit_mobilephone_service(request, id):
     template = 'service/service-edit.html'
     return render(request, template, context)
 
+@login_required(login_url='login')
 def create_computing_service(request):
     form2 = ComputingForm()
     if request.method == 'POST':
@@ -159,6 +224,7 @@ def details_computing_service(request, id):
     template = 'service/service-details.html'
     return render(request, template, context)
 
+@login_required(login_url='login')
 def edit_computing_service(request, id):
     computing = get_object_or_404(Computing, id=id)
     form2 = ComputingForm(instance=computing)
@@ -172,6 +238,7 @@ def edit_computing_service(request, id):
     template = 'service/service-edit.html'
     return render(request, template, context)
 
+@login_required(login_url='login')
 def create_television_service(request):
     form3 = TelevisionForm()
     if request.method == 'POST':
@@ -203,6 +270,7 @@ def details_television_service(request, id):
     template = 'service/service-details.html'
     return render(request, template, context)
 
+@login_required(login_url='login')
 def edit_television_service(request, id):
     television = get_object_or_404(Television, id=id)
     form3 = TelevisionForm(instance=television)
@@ -216,6 +284,7 @@ def edit_television_service(request, id):
     template = 'service/service-edit.html'
     return render(request, template, context)
 
+@login_required(login_url='login')
 def create_others_service(request):
     form4 = OthersForm()
     if request.method == 'POST':
@@ -247,6 +316,7 @@ def details_others_service(request, id):
     template = 'service/service-details.html'
     return render(request, template, context)
 
+@login_required(login_url='login')
 def edit_others_service(request, id):
     others = get_object_or_404(Others, id=id)
     form4 = OthersForm(instance=others)
@@ -260,6 +330,7 @@ def edit_others_service(request, id):
     template = 'service/service-edit.html'
     return render(request, template, context)
 
+@login_required(login_url='login')
 def create_apartment_service(request):
     form5 = ApartmentForm()
     if request.method == 'POST':
@@ -292,6 +363,7 @@ def details_apartment_service(request, id):
     template = 'service/service-details.html'
     return render(request, template, context)
 
+@login_required(login_url='login')
 def edit_apartment_service(request, id):
     apartment = get_object_or_404(Apartment, id=id)
     form5 = ApartmentForm(instance=apartment)
@@ -305,6 +377,7 @@ def edit_apartment_service(request, id):
     template = 'service/service-edit.html'
     return render(request, template, context)
 
+@login_required(login_url='login')
 def create_ecommerce_service(request):
     form6 = EcommerceForm()
     if request.method == 'POST':
@@ -337,6 +410,7 @@ def details_ecommerce_service(request, id):
     template = 'service/service-details.html'
     return render(request, template, context)
 
+@login_required(login_url='login')
 def edit_ecommerce_service(request, id):
     ecommerce = get_object_or_404(Ecommerce, id=id)
     form6 = EcommerceForm(instance=ecommerce)
@@ -350,6 +424,7 @@ def edit_ecommerce_service(request, id):
     template = 'service/service-edit.html'
     return render(request, template, context)
 
+@login_required(login_url='login')
 def create_education_service(request):
     form7 = EducationForm()
     if request.method == 'POST':
@@ -382,6 +457,7 @@ def details_education_service(request, id):
     template = 'service/service-details.html'
     return render(request, template, context)
 
+@login_required(login_url='login')
 def edit_education_service(request, id):
     education = get_object_or_404(Education, id=id)
     form7 = EducationForm(instance=education)

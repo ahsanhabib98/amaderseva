@@ -67,6 +67,10 @@
 
         </nav><!-- Navigation / END -->
 
+        <form method="GET" action="/service/searchingwise-service/">
+            <input type="text" name="q" placeholder="Search">
+        </form>
+
         <section class="main_section">
             <div class="container">
                 <div class="row">
@@ -106,7 +110,7 @@
                              <a href="">
                                 <img src="{{mobile.photo.url}}"/>
                                 <h2>
-                                   CROPPED DENIM JACKET
+                                   <a href="{% url 'detail_mobilephone_service' mobile.id %}">{{mobile.title}}</a>
                                 </h2>
                                 <p>Price ৳ 330 tk only </p>
                                 <p>Location: Dhaka </p>
@@ -118,7 +122,7 @@
                              <a href="">
                                 <img src="{{compute.photo.url}}"/>
                                 <h2>
-                                   CROPPED DENIM JACKET
+                                   <a href="{% url 'detail_computing_service' compute.id %}">{{compute.title}}</a>
                                 </h2>
                                 <p>Price ৳ 330 tk only </p>
                                 <p>Location: Dhaka </p>
@@ -130,7 +134,7 @@
                              <a href="">
                                 <img src="{{tv.photo.url}}"/>
                                 <h2>
-                                   CROPPED DENIM JACKET
+                                   <a href="{% url 'detail_television_service' tv.id %}">{{tv.title}}</a>
                                 </h2>
                                 <p>Price ৳ 330 tk only </p>
                                 <p>Location: Dhaka </p>
@@ -142,7 +146,7 @@
                              <a href="">
                                 <img src="{{other.photo.url}}"/>
                                 <h2>
-                                   CROPPED DENIM JACKET
+                                   <a href="{% url 'detail_others_service' other.id %}">{{other.title}}</a>
                                 </h2>
                                 <p>Price ৳ 330 tk only </p>
                                 <p>Location: Dhaka </p>
@@ -154,7 +158,7 @@
                              <a href="">
                                 <img src="{{apartment.photo.url}}"/>
                                 <h2>
-                                   CROPPED DENIM JACKET
+                                    <a href="{% url 'detail_apartment_service' apartment.id %}">{{apartment.title}}</a>
                                 </h2>
                                 <p>Price ৳ 330 tk only </p>
                                 <p>Location: Dhaka </p>
@@ -166,7 +170,7 @@
                              <a href="">
                                 <img src="{{ecommerce.photo.url}}"/>
                                 <h2>
-                                   CROPPED DENIM JACKET
+                                   <a href="{% url 'detail_ecommerce_service' ecommerce.id %}">{{ecommerce.title}}</a>
                                 </h2>
                                 <p>Price ৳ 330 tk only </p>
                                 <p>Location: Dhaka </p>
@@ -178,7 +182,7 @@
                              <a href="">
                                 <img src="{{education.photo.url}}"/>
                                 <h2>
-                                   CROPPED DENIM JACKET
+                                   <a href="{% url 'detail_education_service' education.id %}">{{education.title}}</a>
                                 </h2>
                                 <p>Price ৳ 330 tk only </p>
                                 <p>Location: Dhaka </p>

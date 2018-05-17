@@ -40,5 +40,6 @@ urlpatterns = [
     path('categorywise-apartment/', categorywise_apartment , name = 'categorywise_apartment'),
     path('categorywise-ecommerce/', categorywise_ecommerce , name = 'categorywise_ecommerce'),
     path('categorywise-education/', categorywise_education , name = 'categorywise_education'),
+    path('searchingwise-service/', searchingwise_service , name = 'searchingwise_service'),
 
 ]

@@ -1,9 +1,18 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.db.models.signals import pre_save, post_save
-from django.utils.text import slugify
 
 # Create your models here.
+
+class Division(models.Model):
+    division_name           =        models.CharField(max_length=50)
+    def __str__(self):
+        return self.division_name
+
+class District(models.Model):
+    district_name           =        models.CharField(max_length=50)
+    division                =        models.ForeignKey(Division,  on_delete=models.CASCADE)
+    def __str__(self):
+        return self.district_name
 
 class Profile(models.Model):
     title_choice = (
@@ -20,32 +29,16 @@ class Profile(models.Model):
         ('Male','Male'),
         ('Female','Female'),
     )
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    profile_image = models.ImageField(upload_to='profile_image', blank=True)
-    profile_name = models.CharField(unique=True, max_length=50)
-    slug = models.SlugField(null=True, blank=True)
-    title = models.CharField(max_length=20, choices=title_choice)
-    gender = models.CharField(max_length=10, choices=gender_choice)
-    division = models.CharField(max_length=10)
-    district = models.CharField(max_length=10)
-    birth_day = models.DateField()
-    phone = models.IntegerField()
-    qualification = models.TextField(blank=True, null=True)
+    user                    =        models.OneToOneField(User, on_delete=models.CASCADE)
+    profile_image           =        models.ImageField(upload_to='profile_image', blank=True)
+    profile_name            =        models.CharField(unique=True, max_length=50)
+    title                   =        models.CharField(max_length=20, choices=title_choice)
+    gender                  =        models.CharField(max_length=10, choices=gender_choice)
+    division                =        models.ForeignKey(Division, on_delete=models.CASCADE)
+    district                =        models.ForeignKey(District, on_delete=models.CASCADE)
+    birth_day               =        models.DateField()
+    phone                   =        models.IntegerField()
+    qualification           =        models.TextField(blank=True, null=True)
 
     def __str__(self):
         return self.profile_name
-
-def pre_save_receiver(sender, instance, *args, **kwargs):
-    if not instance.slug and instance.profile_name:
-        instance.slug = slugify(instance.profile_name)
-
-pre_save.connect(pre_save_receiver, sender=Profile)
-
-
-def post_save_receiver(sender, instance, created, *args, **kwargs):
-    if created:
-        if not instance.slug and instance.profile_name:
-            instance.slug = slugify(instance.profile_name)
-            instance.save()
-
-post_save.connect(post_save_receiver, sender=Profile)

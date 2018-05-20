@@ -1,9 +1,10 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.core.mail import send_mail, BadHeaderError
 from django.contrib import messages
 from django.http import HttpResponse
 from service.models import Category
 from message.forms import ContactForm
+from userinfo.models import Profile
 
 
 def home(request):
@@ -23,7 +24,7 @@ def home(request):
             return redirect('home')
     context = {
         'form':form,
-        'category':category
+        'category':category,
     }
     template = 'home.html'
     return render(request, template, context)

@@ -21,7 +21,7 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = '__all__'
-        exclude = ['user','slug', ]
+        exclude = ['user', ]
 
         widgets = {
             'profile_name': TextInput(attrs={'class':'form-control'}),

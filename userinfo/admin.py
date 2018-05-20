@@ -3,4 +3,6 @@ from .models import *
 
 # Register your models here.
 
+admin.site.register(Division)
+admin.site.register(District)
 admin.site.register(Profile)

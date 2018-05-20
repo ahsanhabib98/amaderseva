@@ -43,7 +43,7 @@ def profile_create(request):
             profile = form.save(commit=False)
             profile.user = request.user
             profile.save()
-            return HttpResponseRedirect("/userinfo/profile-detail/{slug}/".format(slug=profile.slug))
+            return redirect('profile-detail')
     context = {'form':form}
     template = 'userinfo/profile-create.html'
     return render(request, template, context)
@@ -51,13 +51,13 @@ def profile_create(request):
 def profile_detail(request):
     profile = get_object_or_404(Profile, user=request.user)
 
-    mobile = MobilePhone.objects.filter(user=request.user)
-    compute = Computing.objects.filter(user=request.user)
-    tv = Television.objects.filter(user=request.user)
-    other = Others.objects.filter(user=request.user)
-    apartment = Apartment.objects.filter(user=request.user)
-    ecommerce = Ecommerce.objects.filter(user=request.user)
-    education = Education.objects.filter(user=request.user)
+    mobile = MobilePhone.objects.filter(profile=profile)
+    compute = Computing.objects.filter(profile=profile)
+    tv = Television.objects.filter(profile=profile)
+    other = Others.objects.filter(profile=profile)
+    apartment = Apartment.objects.filter(profile=profile)
+    ecommerce = Ecommerce.objects.filter(profile=profile)
+    education = Education.objects.filter(profile=profile)
 
     context = {
         'profile':profile,

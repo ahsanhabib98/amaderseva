@@ -94,6 +94,7 @@
                 <p>Price: {{mobilephone.price}}</p>
                 <p>Negotiable: {{mobilephone.negotiable}}</p>
                 <p>District: {{mobilephone.district}}</p>
+                <h1>You wanna see my profile plz <a href="{% url 'servicewise-profile' mobilephone.profile.id %}">click here</a></h1>
 
                 {% if request.user.is_authenticated %}
                     <div class="tile-footer">
@@ -127,6 +128,7 @@
                 <p>Price: {{computing.price}}</p>
                 <p>Negotiable: {{computing.negotiable}}</p>
                 <p>District: {{computing.district}}</p>
+                <h1>You wanna see my profile plz <a href="{% url 'servicewise-profile' computing.profile.id %}">click here</a></h1>
                 {% if request.user.is_authenticated %}
                     <div class="tile-footer">
                       <a class="btn btn-primary" href="{% url 'edit_computing_service' computing.id %}">Edit</a>
@@ -154,6 +156,7 @@
                 <p>Price: {{television.price}}</p>
                 <p>Negotiable: {{television.negotiable}}</p>
                 <p>District: {{television.district}}</p>
+                <h1>You wanna see my profile plz <a href="{% url 'servicewise-profile' television.profile.id %}">click here</a></h1>
                 {% if request.user.is_authenticated %}
                     <div class="tile-footer">
                       <a class="btn btn-primary" href="{% url 'edit_television_service' television.id %}">Edit</a>
@@ -179,6 +182,7 @@
                 <p>Price: {{others.price}}</p>
                 <p>Negotiable: {{others.negotiable}}</p>
                 <p>District: {{others.district}}</p>
+                <h1>You wanna see my profile plz <a href="{% url 'servicewise-profile' others.profile.id %}">click here</a></h1>
                 {% if request.user.is_authenticated %}
                     <div class="tile-footer">
                       <a class="btn btn-primary" href="{% url 'edit_others_service' others.id %}">Edit</a>
@@ -207,6 +211,7 @@
                 <p>Price: {{apartment.price}}</p>
                 <p>Negotiable: {{apartment.negotiable}}</p>
                 <p>District: {{apartment.district}}</p>
+                <h1>You wanna see my profile plz <a href="{% url 'servicewise-profile' apartment.profile.id %}">click here</a></h1>
                 {% if request.user.is_authenticated %}
                     <div class="tile-footer">
                       <a class="btn btn-primary" href="{% url 'edit_apartment_service' apartment.id %}">Edit</a>
@@ -232,6 +237,7 @@
                 <p>Negotiable: {{ecommerce.negotiable}}</p>
                 <p>Warrenty: {{ecommerce.warrenty}}</p>
                 <p>District: {{ecommerce.district}}</p>
+                <h1>You wanna see my profile plz <a href="{% url 'servicewise-profile' ecommerce.profile.id %}">click here</a></h1>
                 {% if request.user.is_authenticated %}
                     <div class="tile-footer">
                       <a class="btn btn-primary" href="{% url 'edit_ecommerce_service' ecommerce.id %}">Edit</a>
@@ -257,6 +263,7 @@
                 <p>Price: {{education.price}}</p>
                 <p>Negotiable: {{education.negotiable}}</p>
                 <p>District: {{education.district}}</p>
+                <h1>You wanna see my profile plz <a href="{% url 'servicewise-profile' education.profile.id %}">click here</a></h1>
                 {% if request.user.is_authenticated %}
                     <div class="tile-footer">
                       <a class="btn btn-primary" href="{% url 'edit_education_service' education.id %}">Edit</a>

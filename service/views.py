@@ -485,3 +485,27 @@ def edit_education_service(request, id):
     context = {'form7':form7}
     template = 'service/service-edit.html'
     return render(request, template, context)
+
+def servicewise_profile(request, id):
+    profile = get_object_or_404(Profile, id=id)
+
+    mobile = MobilePhone.objects.filter(profile=profile)
+    compute = Computing.objects.filter(profile=profile)
+    tv = Television.objects.filter(profile=profile)
+    other = Others.objects.filter(profile=profile)
+    apartment = Apartment.objects.filter(profile=profile)
+    ecommerce = Ecommerce.objects.filter(profile=profile)
+    education = Education.objects.filter(profile=profile)
+
+    context = {
+        'profile':profile,
+        'mobile':mobile,
+        'compute':compute,
+        'tv':tv,
+        'other':other,
+        'apartment':apartment,
+        'ecommerce':ecommerce,
+        'education':education,
+    }
+    template = 'userinfo/profile-detail.html'
+    return render(request, template, context)

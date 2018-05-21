@@ -92,7 +92,7 @@
                 <p>District: {{profile.district}}</p>
                 <p>Occupation: {{profile.occupation}}</p>
                 <p>Institution: {{profile.Institution}}</p>
-                <p>{{profile.birth_day}}</p>
+                <p>Birth Day: {{profile.birth_day}}</p>
                 <p>Phone number: {{profile.phone}}</p>
                 <p>Qualification: {{profile.qualification}}</p>
               {% else %}
@@ -107,9 +107,11 @@
                     </label>
                   </div>
                 </div>
+              {% if request.user.is_authenticated %}
                 <div class="tile-footer">
                   <a class="btn btn-primary" href="{% url 'profile-edit' %}">Edit</a>
                 </div>
+              {% endif %}
               </form>
 
                 {% for mobile in mobile %}

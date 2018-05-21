@@ -41,5 +41,6 @@ urlpatterns = [
     path('categorywise-ecommerce/', categorywise_ecommerce , name = 'categorywise_ecommerce'),
     path('categorywise-education/', categorywise_education , name = 'categorywise_education'),
     path('searchingwise-service/', searchingwise_service , name = 'searchingwise_service'),
+    path('servicewise-profile/<int:id>', servicewise_profile , name = 'servicewise-profile'),
 
 ]
